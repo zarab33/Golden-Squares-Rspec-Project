@@ -44,17 +44,6 @@ _Make a list of examples of what the method will take and return._
 6. estimate_reading_time("Twenty thousand words")
 => 100
 
-
-
-# EXAMPLE
-
-extract_uppercase("hello WORLD") => ["WORLD"]
-extract_uppercase("HELLO WORLD") => ["HELLO", "WORLD"]
-extract_uppercase("hello world") => []
-extract_uppercase("hello WoRLD") => []
-extract_uppercase("hello WORLD!") => ["WORLD"]
-extract_uppercase("") => []
-extract_uppercase(nil) throws an error
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
