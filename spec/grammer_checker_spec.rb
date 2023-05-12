@@ -11,4 +11,11 @@ RSpec.describe "grammer_checker" do
         expect(result).to eq true
     end
    end
+
+   context "Given a sentence without a capital and with fullstop" do
+    it "returns false" do 
+        result = grammer_checker("hello, coders i make mistakes.") 
+        expect(result).to eq false
+    end
+   end
 end
