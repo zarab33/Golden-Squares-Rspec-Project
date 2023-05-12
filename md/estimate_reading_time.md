@@ -29,17 +29,20 @@ _Make a list of examples of what the method will take and return._
 1. estimate_reading_time("")
 => 0
 
-2. estimate_reading_time("Two hundred words")
+2. estimate_reading_time("one")
 => 1
 
-3. estimate_reading_time("Three hundred words")
+3. estimate_reading_time("Two hundred words")
+=> 1
+
+4. estimate_reading_time("Three hundred words")
 => 2
 
-4. estimate_reading_time("Four hundred words")
+5. estimate_reading_time("Four hundred words")
 => 2
 
-5. estimate_reading_time("Two hundred words")
-=> 2
+6. estimate_reading_time("Twenty thousand words")
+=> 100
 
 
 

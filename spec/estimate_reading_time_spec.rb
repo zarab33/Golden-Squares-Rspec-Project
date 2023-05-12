@@ -10,6 +10,11 @@ RSpec.describe "estimate_reading_time" do
         result = estimate_reading_time("one")
         expect(result).to eq 1
     end 
+
+    it "estimates a result for a text of 200 words return 1" do 
+        result = estimate_reading_time("Two" * 200)
+        expect(result).to eq 1
+    end 
 end
 
 
