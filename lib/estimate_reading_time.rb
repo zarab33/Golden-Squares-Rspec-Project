@@ -1,3 +1,4 @@
 def estimate_reading_time(text)
-    return 0
+    words = text.split(" ")
+    words.length
 end
