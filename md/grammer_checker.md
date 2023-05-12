@@ -29,15 +29,15 @@ _Make a list of examples of what the method will take and return._
 
 2. grammer_checker("Hello, coders i can use correct grammer.")  => true
 
-2. grammer_checker("hello, coders i make mistakes.")  => false
+3. grammer_checker("hello, coders i make mistakes.")  => false
 
-3. grammer_checker("hello, coders i make mistakes")  => false
+4. grammer_checker("hello, coders i make mistakes")  => false
 
-4. grammer_checker("HELLO, coders i can use correct grammer.")  => true
+5. grammer_checker("HELLO, coders i can use correct grammer.")  => true
 
-5. grammer_checker("Hello, coders i can use correct grammer?")  => true
+6 grammer_checker("Hello, coders i can use correct grammer?")  => true
 
-s
+
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
