@@ -13,4 +13,12 @@ end
         expect(result).to eq true
     end
 end
+
+context "Given a text without the word #TODO" do 
+    it "returns false" do
+        result = todo_tracker("The text dosent include keyword")
+        expect(result).to eq false
+    end
+end
+
 end
