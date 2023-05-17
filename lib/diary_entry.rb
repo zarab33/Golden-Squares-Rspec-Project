@@ -21,7 +21,8 @@ class DiaryEntry
   end
 
   def reading_time(wpm) 
-    return (count_words / wpm.to_f).ceil
+    fail "Fail! Reading time must be above zero." unless wpm > 0
+    return (count_words / wpm.to_f).ceil # ceiling rounds upwards
     # wpm is an integer representing the number of words the
                         # user can read per minute
     # Returns an integer representing an estimate of the reading time in minutes

@@ -29,4 +29,13 @@ RSpec.describe DiaryEntry do
         end
     end
 
+    context "given a wpm of 0" do
+            it "fails" do
+            diary_entry = DiaryEntry.new("my_title", "one two three ")
+            expect { diary_entry.reading_time(0) }.to raise_error "Fail! Reading time must be above zero."
+            end
+        
+    end
+
+
 end
