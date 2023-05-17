@@ -30,7 +30,9 @@ class DiaryEntry
   end
 
   def reading_chunk(wpm, minutes) 
-    @contents
+    no_words_we_can_read = wpm * minutes
+    word_list = words[0, no_words_we_can_read]
+    return word_list.join(" ")
     
     # `wpm` is an integer representing the number
                                   # of words the user can read per minute
@@ -41,5 +43,11 @@ class DiaryEntry
     # If called again, `reading_chunk` should return the next chunk, skipping
     # what has already been read, until the contents is fully read.
     # The next call after that it should restart from the beginning.
+  end
+
+  private
+
+  def words
+    return @contents.split(" ")
   end
 end
