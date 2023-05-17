@@ -29,7 +29,10 @@ class DiaryEntry
     # for the contents at the given wpm.
   end
 
-  def reading_chunk(wpm, minutes) # `wpm` is an integer representing the number
+  def reading_chunk(wpm, minutes) 
+    @contents
+    
+    # `wpm` is an integer representing the number
                                   # of words the user can read per minute
                                   # `minutes` is an integer representing the
                                   # number of minutes the user has to read
