@@ -7,4 +7,10 @@ RSpec.describe GrammarStats do
             expect(stats.check("Hello world.")).to eq true
         end
     end
+
+        it "empty string returns it fails" do 
+            stats = GrammarStats.new 
+            expect{ stats.check("") }.to raise_error "Not a sentence."
+        end
+    
 end
