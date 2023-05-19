@@ -25,7 +25,7 @@ RSpec.describe TodoList do
   end
 
   context "when we try complete a non existent task" do
-    xit "fails" do
+    it "fails" do
       todo_list = TodoList.new
       todo_list.add("Wash the car")
       expect { todo_list.complete("Wash the sheep") }.to raise_error "No such tasks"
