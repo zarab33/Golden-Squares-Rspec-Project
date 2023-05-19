@@ -6,13 +6,15 @@ class Playlist
   end
 
   def add_track(tracks)
-    @tracks << task
+    @tracks << tracks
 
   end
 
   def view_track
+    if @tracks.empty?
+        raise "No tracks are added"
+    end
     return @tracks
 
   end
-
 end
