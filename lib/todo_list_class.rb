@@ -1,25 +1,22 @@
 class TodoList
 
   def initialize
-    #@task = []
+    @task = []
 
   end
 
-  def add_task(task)
-    #@task << task
+  def add(task)
+    if task.empty?
+        fail "No task found"
+    end
+    @task << task
 
   end
 
-  def view_task
+  def list
     return @task
 
-  end
-
-  def mark_task_as_complete(task)
-    is_completed = false
-
-    @task.delete_at()
+  
 
   end
-
 end
