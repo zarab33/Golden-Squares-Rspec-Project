@@ -18,6 +18,9 @@ class TodoList
   end
 
   def complete
+    return @todo.select do |todo|
+        todo.done?
+    end
     # Returns all complete todos
   end
 
