@@ -1,10 +1,14 @@
-# File: lib/todo.rb
 class Todo
-  def initialize(task) # task is a string
+  def initialize(task)
+    @task = task
+   #@task = []
+   #@todo = task 
+    # task is a string
     # ...
   end
 
   def task
+   return @task
     # Returns the task as a string
   end
 
