@@ -32,6 +32,15 @@ RSpec.describe "integration" do
             diary.add(diary_entry_2)
             expect(diary.reading_time(2)).to eq 3
          end
+
+         it "it calculates the reading time for all entries where its over a minute" do
+            diary = Diary.new
+            diary_entry_1 = DiaryEntry.new("my title", "my contents")
+            diary_entry_2 = DiaryEntry.new("my title 2", "my contents 2")
+            diary.add(diary_entry_1)
+            diary.add(diary_entry_2)
+            expect(diary.reading_time(2)).to eq 3
+         end
         end
     end
 end
