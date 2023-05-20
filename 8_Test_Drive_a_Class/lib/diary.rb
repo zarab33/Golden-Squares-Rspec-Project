@@ -34,9 +34,10 @@ class Diary
     readable_entries = @entries.filter do |entry|
         entry.reading_time(wpm) <= minutes
     end
-    return readable_entries.first
-
-
+    sorted_by_longest = readable_entries.sort_by do |entry|
+        entry.count_words
+    end
+    sorted_by_longest.last
         # `wpm` is an integer representing the number of words the user can read
         # per minute.
         # `minutes` is an integer representing the number of minutes the user
