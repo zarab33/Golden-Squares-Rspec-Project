@@ -2,7 +2,13 @@ require 'diary'
 require 'diary_entry'
 
 RSpec.describe "integration" do
-    context "after adding some entries" do
+    it "fails if the wpm is zero" do
+        diary = Diary.new
+        diary_entry_1 = DiaryEntry.new("my title", "my contents")
+        diary.add(diary_entry_1)
+        expect { diary.find_best_entry_for_reading_time(0, 1) }.to raise_error "WPM must be positive"
+    end
+                context "after adding some entries" do
         it "Returns a list of entries added" do
             diary = Diary.new
             diary_entry_1 = DiaryEntry.new("my title", "my contents")
