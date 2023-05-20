@@ -8,7 +8,12 @@ RSpec.describe DiaryEntry do
     end
 
     describe "#count_words" do
-        it "counts the words in the contents" do
+        it "returns zero on empty contents" do
+            diary_entry = DiaryEntry.new("my title", "")
+            expect(diary_entry.count_words).to eq 0
+        end
+
+         it "counts the words in the contents" do
             diary_entry = DiaryEntry.new("my title", "A day in the life of a Coder")
             expect(diary_entry.count_words).to eq 8
         end
