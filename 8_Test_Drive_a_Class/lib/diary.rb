@@ -31,6 +31,9 @@ class Diary
   end
 
   def find_best_entry_for_reading_time(wpm, minutes)
+    return @entries.first
+
+
         # `wpm` is an integer representing the number of words the user can read
         # per minute.
         # `minutes` is an integer representing the number of minutes the user
