@@ -6,4 +6,12 @@ RSpec.describe DiaryEntry do
         expect(diary_entry.title).to eq "my title"
         expect(diary_entry.contents).to eq "my contents"
     end
+
+    describe "#count_words" do
+        it "counts the words in the contents" do
+            diary_entry = DiaryEntry.new("my title", "A day in the life of a Coder")
+            expect(diary_entry.count_words).to eq 8
+        end
+    end
+
 end
