@@ -10,7 +10,10 @@ class TodoList
   end
 
   def incomplete
-    return @todo
+    return @todo.reject do |todo|
+        todo.done?
+    end
+     return @todo
     # Returns all non-done todos
   end
 
