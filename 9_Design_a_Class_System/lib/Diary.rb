@@ -1,16 +1,16 @@
 class Diary
   def initialize
-    #@entries = []
+    @entries = []
   end
 
   def add(entry)
-   # @entries << entry
+   @entries << entry
     # entry is an instance of DiaryEntry
     # Returns nothing
   end
 
   def view
-    #return @entries
+    return @entries
     # Returns a list of instances of DiaryEntry
   end
 

@@ -1,12 +1,19 @@
-=begin
-#1. Adds entry and returns to diary
-    diary = Diary.new
-    diary_entry_1 = DiaryEntry.new("my_title_1", "my_contents_1")
-    diary_entry_2 = DiaryEntry.new("my_title_2", "my_contents_2")
-    diary.add(diary_entry_1)
-    diary.add(diary_entry_2)
-    diary.view => [diary_entry_1, diary_entry_2]
+require 'Diary'
+require 'DiaryEntry'
+require 'Todo'
+require 'Phonebook'
 
+RSpec.describe "integration" do
+    it "Adds entry and returns to diary" do
+        diary = Diary.new
+        diary_entry_1 = DiaryEntry.new("my_title_1", "my_contents_1")
+        diary_entry_2 = DiaryEntry.new("my_title_2", "my_contents_2")
+        diary.add(diary_entry_1)
+        diary.add(diary_entry_2)
+        expect(diary.view).to eq [diary_entry_1, diary_entry_2]
+    end
+end
+=begin
 #2. No entry outputs an empty string
     diary = Diary.new
     diary_entry_1 = DiaryEntry.new

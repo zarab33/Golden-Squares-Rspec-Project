@@ -1,37 +1,47 @@
+require 'DiaryEntry'
+
+RSpec.describe DiaryEntry do
+    it "contructs" do
+        diary_entry = DiaryEntry.new("my title", "my contents")
+        expect(diary_entry.title).to eq "my title"
+        expect(diary_entry.entry).to eq "my contents"
+    end
+end
 =begin
 
-#1.     "contructs"
-        diary_entry = DiaryEntry.new("my title", "my contents")
-        (diary_entry.title).to  "my title"
-        (diary_entry.contents) => "my contents"
+    describe "#count_words" do
+        it "returns zero on empty contents" do
+            diary_entry = DiaryEntry.new("my title", "")
+            expect(diary_entry.count_words).to eq 0
+        end
 
-#2.     "#count_words"
-        "returns zero on empty contents"
-        diary_entry = DiaryEntry.new("my title", "")
-        (diary_entry.count_words) =>  0
+         it "counts the words in the contents" do
+            diary_entry = DiaryEntry.new("my title", "A day in the life of a Coder")
+            expect(diary_entry.count_words).to eq 8
+        end
+    
+        describe "#reading_time" do
+            it "fails if the wpm is zero" do
+                diary_entry = DiaryEntry.new("my title", "Hi Giraffe!")
+                expect { diary_entry.reading_time(0) }.to raise_error "WPM must be positive"
+            end
 
+            it "returns zero if empty contents" do
+                diary_entry = DiaryEntry.new("my title", "")
+                expect(diary_entry.reading_time(2)).to eq 0
+            end
 
-#3.     #"counts the words in the contents"
-        diary_entry = DiaryEntry.new("my title", "A day in the life of a Coder")
-        (diary_entry.count_words) =>  8
+            it "returns one if contents is one word" do
+                diary_entry = DiaryEntry.new("my title", "Coder")
+                expect(diary_entry.reading_time(2)).to eq 1
+            end
 
-#4.     "#reading_time"
-        "fails if the wpm is zero"
-        diary_entry = DiaryEntry.new("my title", "Hi Giraffe!")
-        diary_entry.reading_time(0) =>  "WPM must be positive"
+            it "returns a reading time for the contents" do
+                diary_entry = DiaryEntry.new("my title", "Happy days are on friday!")
+                expect(diary_entry.reading_time(2)).to eq 3
+            end
+        end    
+    end
 
-
-#5.     "returns zero if empty contents"
-        diary_entry = DiaryEntry.new("my title", "")
-        (diary_entry.reading_time(2)) => 0
-
-
-#6.     "returns one if contents is one word"
-        diary_entry = DiaryEntry.new("my title", "Coder")
-        (diary_entry.reading_time(2)) =>  1
-
-
-#7.     "returns a reading time for the contents"
-        diary_entry = DiaryEntry.new("my title", "Happy days are on friday!")
-        (diary_entry.reading_time(2)) =>  3
+end
 =end
