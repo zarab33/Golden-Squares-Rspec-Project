@@ -13,15 +13,14 @@ RSpec.describe DiaryEntry do
             diary_entry = DiaryEntry.new("my title", "")
             expect(diary_entry.count_words).to eq 0
         end
-    end
-end
-=begin
+    
          it "counts the words in the contents" do
             diary_entry = DiaryEntry.new("my title", "A day in the life of a Coder")
             expect(diary_entry.count_words).to eq 8
         end
-    
-        describe "#reading_time" do
+    end
+end    
+=begin        describe "#reading_time" do
             it "fails if the wpm is zero" do
                 diary_entry = DiaryEntry.new("my title", "Hi Giraffe!")
                 expect { diary_entry.reading_time(0) }.to raise_error "WPM must be positive"
