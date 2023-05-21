@@ -1,22 +1,16 @@
 class Todo
-  def initialize
+  def initialize(task)
     @task = task
-    @ne = false
+    
   end
 
  def add(task)
+    @task << task
     # Returns the task as a string
   end
-
 
   def task
    return @task
     # Returns the task as a string
-  end
-
-  def view(diary)
-    @ne = true
-    # Marks the to as ne
-    # Returns nothing
   end
 end

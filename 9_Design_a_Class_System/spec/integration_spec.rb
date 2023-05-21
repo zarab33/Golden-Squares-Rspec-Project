@@ -107,4 +107,16 @@ RSpec.describe "integration" do
              expect(phone_book.extract_numbers).to eq []
          end
     end
+
+    describe "#Todo behaviour" do
+        it "adds Todo tasks to diary entries" do
+            diary = Diary.new
+            todo_tasks = Todo.new([])
+            diary_entry = DiaryEntry.new("Clean the drains", "Entry contents")
+            diary.add(diary_entry)
+            todo_tasks.add(diary_entry)
+            expect(todo_tasks.task).to eq [diary_entry]
+        end
+        end
+
 end
