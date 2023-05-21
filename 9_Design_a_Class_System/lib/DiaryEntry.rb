@@ -12,7 +12,8 @@ class DiaryEntry
   end
 
   def entry
-    return @entry
+    return @entry 
+    #return @task
     # Returns the entry as a string
   end
 
