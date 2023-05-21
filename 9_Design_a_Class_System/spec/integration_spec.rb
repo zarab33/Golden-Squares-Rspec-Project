@@ -85,41 +85,26 @@ RSpec.describe "integration" do
             end
         end
     end
+
+    describe "phone number extraction behaviour" do
+         it "extracts phone numbers from all diary entries" do
+             diary = Diary.new
+             phone_book = Phonebook.new(diary)
+             diary.add(DiaryEntry.new("title0","my friend is cool"))
+             diary.add(DiaryEntry.new("title1","my friend 07800000000 is cool"))
+             diary.add(DiaryEntry.new("title0","my friends 07800000000, 07800000001, 07800000002 are cool"))
+             expect(phone_book.extract_numbers).to eq [
+                 "07800000000",
+                 "07800000001",
+                 "07800000002"
+             ]
+         end
+
+          it "doesn't extract invalid numbers" do
+             diary = Diary.new
+             phone_book = Phonebook.new(diary)
+             diary.add(DiaryEntry.new("title0","my friends 078000000, 780000000111, 08000000010 are cool"))
+             expect(phone_book.extract_numbers).to eq []
+         end
+    end
 end
-
-
-=begin
-
-#8. "when there is one entry that is unreadable in the time"
-    "returns nil"
-    diary = Diary.new
-    diary_entry_1 = DiaryEntry.new("my title", "my contents readable")
-    diary.add(diary_entry_1)
-    result = diary.find_best_entry_for_reading_time(2,1)
-(result) => nil
-
-#9. "where we have multiple entries"
-    "returns the longest entry user could read in this time"
-    diary = Diary.new
-    best_entry = DiaryEntry.new("my title", "one, two")
-    diary.add(DiaryEntry.new("my title", "one"))
-    diary.add(best_entry)
-    diary.add(DiaryEntry.new("my title", "one, two three"))
-    diary.add(DiaryEntry.new("my title", "one, two three four"))
-    result = diary.find_best_entry_for_reading_time(2, 1)
-(result) => best_entry
-
-
-#10. "add a new contact to diary entry"
-    phone_book = PhonenumberExtractor.new(diary)
-    diary.add(DiaryEntry.new("title0","my friend is cool"))
-    diary.add(DiaryEntry.new("title1","my friend 07800000000 is cool"))
-    diary.add(DiaryEntry.new("title0","my friends 07800000000, 07800000001, 07800000002 are cool"))
-    phone_book.extract_numbers => ["07800000000", "07800000001", "07800000002"]
-
-#11. "returns empty string if not enough integers are added to a contact"
-    diary = Diary.new
-    phone_book = PhonenumberExtractor.new(diary)
-    diary.add(DiaryEntry.new("title0","my friends 078000000, 780000000111, 08000000010 are cool"))
-    phone_book.extract_numbers => []
-=end

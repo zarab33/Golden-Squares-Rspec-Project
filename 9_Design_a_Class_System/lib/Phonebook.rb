@@ -1,14 +1,17 @@
 class Phonebook
-def initialize(diary)
-end
-
-  def extract_numbers
-   #return @task
-    # Returns the task as a string
+  def initialize(diary)
+    @diary = diary
   end
 
+  def extract_numbers
+    @diary.view.flat_map do |contact|
+      extract_numbers_from_entry(contact.entry)
+    end.uniq
+  end
+
+  private
+
   def extract_numbers_from_entry(entry)
-    # Marks the to as ne
-    # Returns nothing
+    entry.scan(/07[0-9]{9}/)
   end
 end
