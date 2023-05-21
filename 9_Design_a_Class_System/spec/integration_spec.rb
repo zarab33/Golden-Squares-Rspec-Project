@@ -31,28 +31,29 @@ RSpec.describe "integration" do
             diary.add(diary_entry_1)
             expect { diary.reading_time(0) }.to raise_error ("WPM must be positive")
         end
-    end
 
+        it "it calculates the reading time for all entries" do
+            diary = Diary.new
+            diary_entry_1 = DiaryEntry.new("my title", "my contents")
+            diary_entry_2 = DiaryEntry.new("my title 2", "my contents 2")
+            diary.add(diary_entry_1)
+            diary.add(diary_entry_2)
+            expect(diary.reading_time(2)).to eq 3
+        end
+
+        it "it calculates the reading time for all entries where its over a minute" do
+            diary = Diary.new
+            diary_entry_1 = DiaryEntry.new("my title", "my contents")
+            diary_entry_2 = DiaryEntry.new("my title 2", "my contents 2")
+            diary.add(diary_entry_1)
+            diary.add(diary_entry_2)
+            expect(diary.reading_time(2)).to eq 3
+        end
+    end
 end
 
 
 =begin
-
-#5. "it calculates the reading time for all entries"
-    diary = Diary.new
-    diary_entry_1 = DiaryEntry.new("my title", "my contents")
-    diary_entry_2 = DiaryEntry.new("my title 2", "my contents 2")
-    diary.add(diary_entry_1)
-    diary.add(diary_entry_2)
-    diary.reading_time(2) => 3
-
-#6. "it calculates the reading time for all entries where its over a minute"
-    diary = Diary.new
-    diary_entry_1 = DiaryEntry.new("my title", "my contents")
-    diary_entry_2 = DiaryEntry.new("my title 2", "my contents 2")
-    diary.add(diary_entry_1)
-    diary.add(diary_entry_2)
-    diary.reading_time(2) => 3
 
 #7. "find best entry reading time"
     "when there is one entry that is readable in the time"
