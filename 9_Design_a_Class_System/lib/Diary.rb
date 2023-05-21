@@ -21,6 +21,8 @@ class Diary
   end
 
   def reading_time(wpm)
+    fail "WPM must be positive" unless wpm.positive? 
+    return (count_words / wpm.to_f).ceil
     # wpm is an integer representing
     # the number of words the user can read per minute
     # Returns an integer representing an estimate of the reading time in minutes

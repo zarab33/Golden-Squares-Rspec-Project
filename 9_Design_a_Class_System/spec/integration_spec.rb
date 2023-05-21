@@ -22,16 +22,21 @@ RSpec.describe "integration" do
             diary.add(diary_entry_2)
             expect(diary.count_words).to eq 5
         end
+   end    
+ 
+    describe "#reading time" do
+        it "fails if the wpm is zero" do
+            diary = Diary.new
+            diary_entry_1 = DiaryEntry.new("my title", "my contents 1")
+            diary.add(diary_entry_1)
+            expect { diary.reading_time(0) }.to raise_error ("WPM must be positive")
+        end
     end
-end
-=begin
-#4. #"reading time"
-    "fails if the wpm is zero"
-    diary = Diary.new
-    diary_entry_1 = DiaryEntry.new("my title", "my contents 1")
-    diary.add(diary_entry_1)
-    diary.reading_time(0) => "WPM must be positive"
 
+end
+
+
+=begin
 
 #5. "it calculates the reading time for all entries"
     diary = Diary.new
