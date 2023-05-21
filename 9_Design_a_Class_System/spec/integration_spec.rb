@@ -12,23 +12,19 @@ RSpec.describe "integration" do
         diary.add(diary_entry_2)
         expect(diary.view).to eq [diary_entry_1, diary_entry_2]
     end
+
+  describe "#count_words" do
+        it "it counts all the words in diary entries contents" do
+            diary = Diary.new
+            diary_entry_1 = DiaryEntry.new("my title", "my contents")
+            diary_entry_2 = DiaryEntry.new("my title 2", "my contents 2")
+            diary.add(diary_entry_1)
+            diary.add(diary_entry_2)
+            expect(diary.count_words).to eq 5
+        end
+    end
 end
 =begin
-#2. No entry outputs an empty string
-    diary = Diary.new
-    diary_entry_1 = DiaryEntry.new
-    diary.add(diary_entry_1)
-    diary.view => []
-
-#3. #count_words
-    #"it counts all the words in diary entries contents"
-    diary = Diary.new
-    diary_entry_1 = DiaryEntry.new("my title", "my contents")
-    diary_entry_2 = DiaryEntry.new("my title 2", "my contents 2")
-    diary.add(diary_entry_1)
-    diary.add(diary_entry_2)
-    diary.count_words.to eq 5
-
 #4. #"reading time"
     "fails if the wpm is zero"
     diary = Diary.new

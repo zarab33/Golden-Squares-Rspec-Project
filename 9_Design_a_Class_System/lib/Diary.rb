@@ -15,6 +15,7 @@ class Diary
   end
 
   def count_words
+    return @entries.sum(&:count_words)
     # Returns the number of words in all diary entries
     # HINT: This method should make use of the `count_words` method on DiaryEntry.
   end

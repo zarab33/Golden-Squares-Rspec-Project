@@ -15,4 +15,9 @@ class DiaryEntry
     return @entry
     # Returns the entry as a string
   end
+
+  def count_words
+     return @entry.split(" ").length
+    # Returns the number of words in the contents as an integer
+  end
 end
