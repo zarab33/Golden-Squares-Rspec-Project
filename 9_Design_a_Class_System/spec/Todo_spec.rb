@@ -24,18 +24,4 @@ RSpec.describe Todo do
         todo = Todo.new("Clean the car")
         expect(todo.task).to eq ("Do the dishes", "Clean the car")
     end
-
-    xit "when given a task to complete it removes it from the list" do
-        todo_list = Todo.new
-        todo_list.add("Do the ironing")
-        todo_list.add("Go walk the dog")
-        todo_list.complete("Do the ironing")
-        expect(todo_list.task).to eq ["Go walk the dog"]
-    end
-   
-    xit "fails when asked to complete a task that is not on the list" do
-        todo_list = Todo.new
-        todo_list.add("Cook dinner") 
-        expect{ todo_list.complete("Go walk the dog") }.to raise_error "No such task."
-    end
 end
