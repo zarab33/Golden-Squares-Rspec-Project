@@ -50,19 +50,32 @@ RSpec.describe "integration" do
             expect(diary.reading_time(2)).to eq 3
         end
     end
+
+    describe "find best entry reading time" do
+        context "when there is one entry that is readable in the time" do
+            it "returns that entry" do
+                diary = Diary.new
+                diary_entry_1 = DiaryEntry.new("my title", "my contents")
+                diary.add(diary_entry_1)
+                result = diary.find_best_entry_for_reading_time(2, 1)
+                expect(result).to eq diary_entry_1
+            end
+        end
+
+        context "when there is one entry that is unreadable in the time" do
+            it "returns nil" do
+                diary = Diary.new
+                diary_entry_1 = DiaryEntry.new("my title", "my contents readable")
+                diary.add(diary_entry_1)
+                result = diary.find_best_entry_for_reading_time(2,1)
+                expect(result).to eq nil
+            end
+        end
+    end
 end
 
 
 =begin
-
-#7. "find best entry reading time"
-    "when there is one entry that is readable in the time"
-    "returns that entry"
-    diary = Diary.new
-    diary_entry_1 = DiaryEntry.new("my title", "my contents")
-    diary.add(diary_entry_1)
-    result = diary.find_best_entry_for_reading_time(2, 1)
-(result) => diary_entry_1
 
 #8. "when there is one entry that is unreadable in the time"
     "returns nil"

@@ -20,4 +20,8 @@ class DiaryEntry
      return @entry.split(" ").length
     # Returns the number of words in the contents as an integer
   end
+   def reading_time(wpm)
+    fail "WPM must be positive" unless wpm.positive? 
+    return (count_words / wpm.to_f).ceil
+  end
 end
