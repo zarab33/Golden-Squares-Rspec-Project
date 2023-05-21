@@ -3,15 +3,6 @@ require 'todo'
 
 
 RSpec.describe "intergration" do
-    xcontext "given no tasks" do 
-        xit "has an empty todo list" do
-            todos = TodoList.new
-            tasks = Todo.new(task)
-            todos.add(tasks)
-            expect{ todos.incomplete[] }.to raise_error "No task found"
-        end
-    end        
-
     context "adds tasks" do
         it "to be completed" do
             todos = TodoList.new
@@ -42,6 +33,20 @@ RSpec.describe "intergration" do
             todos.add(task_2)
             task_1.mark_done!
             expect(todos.complete).to eq [task_1]
+        end
+    end
+    
+    context "tasks that are in the mark done list are" do
+        it "marked as complete" do
+            todos = TodoList.new
+            task_1 = Todo.new("Wash the windows")
+            task_2 = Todo.new("Clean the oven")
+            todos.add(task_1)
+            todos.add(task_2)
+            task_1.mark_done!
+            task_2.mark_done!
+            todos.give_up!
+            expect(todos.complete).to eq [task_1, task_2]
         end
     end
 end

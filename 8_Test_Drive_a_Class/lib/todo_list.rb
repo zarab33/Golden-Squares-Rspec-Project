@@ -25,7 +25,10 @@ class TodoList
   end
 
   def give_up!
+    @todo.each do |todo|
+        todo.mark_done!
+    end
     # Marks all todos as complete
-  end
+   end
 end
 

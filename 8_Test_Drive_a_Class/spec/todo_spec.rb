@@ -1,13 +1,6 @@
 require 'todo'
 
 RSpec.describe Todo do
-    xcontext "given no tasks" do 
-        xit "returns an empty string" do
-            tasks = Todo.new("")
-            expect(tasks.task).to eq ""
-        end
-    end
-
     context "given a task" do 
         it "returns a task" do
             tasks = Todo.new("Wash the windows")
