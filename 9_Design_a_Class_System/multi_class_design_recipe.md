@@ -175,6 +175,7 @@ So that I can keep track of my contacts
 I want to see a list of all of the mobile phone numbers in all my diary entries
 
 ```ruby
+Integration
 
 #1. Adds entry and returns to diary
     diary = Diary.new
